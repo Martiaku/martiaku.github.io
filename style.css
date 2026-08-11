@@ -1,0 +1,742 @@
+/* Základní proměnné a reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #09090b; /* Hlavní tmavé pozadí (zinc-950) */
+    color: #f4f4f5; /* Světlý text */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Pomocné třídy */
+.accent {
+    color: #2dd4bf; /* Tyrkysová/teal barva */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section {
+    padding: 6rem 0;
+    border-top: 1px solid #18181b;
+    transition: border-color 0.3s ease;
+}
+
+.bg-alt {
+    background-color: rgba(9, 9, 11, 0.5);
+}
+
+/* Karty */
+.card {
+    background-color: rgba(24, 24, 27, 0.4);
+    border: 1px solid rgba(39, 39, 42, 0.8);
+    border-radius: 1rem;
+    padding: 2rem;
+    backdrop-filter: blur(8px);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+    border-color: rgba(45, 212, 191, 0.5);
+}
+
+/* Navigace */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(9, 9, 11, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #27272a;
+    z-index: 100;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Tlačítko pro přepínání motivu a jeho ikony */
+.theme-btn {
+    background: none;
+    border: 1px solid #27272a;
+    color: #2dd4bf;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.theme-btn:hover {
+    background-color: rgba(45, 212, 191, 0.1);
+    border-color: #2dd4bf;
+}
+
+/* Výchozí stav ikon přepínače */
+#theme-toggle #moon-icon {
+    display: none;
+}
+
+#theme-toggle #sun-icon {
+    display: block;
+}
+
+/* Po přepnutí do světlého režimu */
+body.light-mode #theme-toggle #sun-icon {
+    display: none;
+}
+
+body.light-mode #theme-toggle #moon-icon {
+    display: block;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #2dd4bf;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+}
+
+.logo span {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #a1a1aa;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #2dd4bf;
+}
+
+.nav-btn {
+    background-color: #2dd4bf;
+    color: #09090b;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: background-color 0.2s;
+}
+
+.nav-btn:hover {
+    background-color: #14b8a6;
+}
+
+/* Úvodní sekce (Hero) s fotkou vlevo */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 0 4rem 0;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .hero-container {
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+    
+    .hero-content {
+        max-width: 55%;
+    }
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2dd4bf;
+    background: rgba(45, 212, 191, 0.1);
+    border: 1px solid rgba(45, 212, 191, 0.3);
+    border-radius: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    color: #a1a1aa;
+    font-size: 1.125rem;
+    margin-bottom: 2.5rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+}
+
+/* Rámeček pro fotku v Hero sekci */
+.hero-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.hero-image-box {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(45, 212, 191, 0.2), rgba(45, 212, 191, 0.05));
+    border: 2px solid rgba(45, 212, 191, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.hero-image-box:hover {
+    border-color: #2dd4bf;
+}
+
+.hero-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Tlačítka */
+.btn-primary {
+    background-color: #2dd4bf;
+    color: #09090b;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #14b8a6;
+}
+
+.btn-secondary {
+    background-color: #18181b;
+    color: #f4f4f5;
+    border: 1px solid #27272a;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s, background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background-color: #27272a;
+}
+
+/* O mně sekce */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.about-card p {
+    color: #d4d4d8;
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #27272a;
+    transition: border-color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .about-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.stat-title {
+    display: block;
+    color: #2dd4bf;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.stat-desc {
+    font-size: 0.75rem;
+    color: #71717a;
+}
+
+/* Grid layouty pro dovednosti a projekty */
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.skill-icon {
+    color: #2dd4bf;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.skill-card p, .project-card p {
+    font-size: 0.875rem;
+    color: #a1a1aa;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Styly pro obrázky v projektech */
+.project-image-box {
+    width: 100%;
+    height: 180px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(39, 39, 42, 0.6);
+}
+
+.project-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image-box img {
+    transform: scale(1.03);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    color: #2dd4bf;
+    font-family: monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.project-link {
+    color: #a1a1aa;
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.project-link:hover {
+    color: #fff;
+}
+
+.project-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(39, 39, 42, 0.6);
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #71717a;
+}
+
+/* Kontakt formulář */
+.contact-container {
+    max-width: 600px;
+}
+
+.center {
+    justify-content: center;
+}
+
+.contact-text {
+    text-align: center;
+    color: #a1a1aa;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: #a1a1aa;
+    margin-bottom: 0.25rem;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    background-color: #09090b;
+    border: 1px solid #27272a;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: #f4f4f5;
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.2s, background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: #2dd4bf;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* Patička */
+footer {
+    padding: 2rem 0;
+    border-top: 1px solid #18181b;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #52525b;
+    transition: border-color 0.3s ease;
+}
+
+/* Styly pro stránku Ochrana soukromí */
+.privacy-section {
+    min-height: 80vh;
+    padding-top: 8rem;
+}
+
+.privacy-card {
+    margin-bottom: 2rem;
+}
+
+.privacy-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    color: inherit;
+}
+
+.privacy-card p {
+    margin-bottom: 0.5rem;
+}
+
+.privacy-intro {
+    margin-bottom: 1.5rem !important;
+}
+
+.privacy-footer-btn {
+    text-align: center;
+}
+
+/* ==========================================
+    SVĚTLÝ REŽIM (Light Mode)
+   ========================================== */
+body.light-mode {
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
+body.light-mode .navbar {
+    background-color: rgba(248, 250, 252, 0.85);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+body.light-mode .logo span {
+    color: #0f172a;
+}
+
+body.light-mode .nav-links a {
+    color: #64748b;
+}
+
+body.light-mode .nav-links a:hover {
+    color: #0d9488;
+}
+
+body.light-mode .section {
+    border-top: 1px solid #e2e8f0;
+}
+
+body.light-mode .bg-alt {
+    background-color: rgba(241, 245, 249, 0.6);
+}
+
+body.light-mode .card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .card:hover {
+    border-color: #0d9488;
+}
+
+body.light-mode .badge {
+    background-color: rgba(13, 148, 136, 0.1);
+    color: #0d9488;
+    border-color: rgba(13, 148, 136, 0.2);
+}
+
+body.light-mode .accent {
+    color: #0d9488;
+}
+
+body.light-mode .hero p,
+body.light-mode .about-card p,
+body.light-mode .skill-card p,
+body.light-mode .project-card p,
+body.light-mode .contact-text,
+body.light-mode .form-group label {
+    color: #475569;
+}
+
+body.light-mode .btn-secondary {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+}
+
+body.light-mode .btn-secondary:hover {
+    background-color: #e2e8f0;
+}
+
+body.light-mode .about-grid,
+body.light-mode .project-tags,
+body.light-mode .project-image-box {
+    border-color: #e2e8f0;
+}
+
+body.light-mode .stat-desc {
+    color: #94a3b8;
+}
+
+body.light-mode .theme-btn {
+    border-color: #cbd5e1;
+    color: #0d9488;
+}
+
+body.light-mode .theme-btn:hover {
+    background-color: rgba(13, 148, 136, 0.1);
+    border-color: #0d9488;
+}
+
+body.light-mode .form-group input, 
+body.light-mode .form-group textarea {
+    background-color: #ffffff;
+    border-color: #cbd5e1;
+    color: #0f172a;
+}
+
+body.light-mode footer {
+    border-top: 1px solid #e2e8f0;
+    color: #94a3b8;
+}
+
+/* ==========================================
+    RESPONZIVITA A HAMBURGER MENU (Jednotný blok)
+   ========================================== */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #2dd4bf;
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+@media (max-width: 767px) {
+    /* Úpravy pro menší displeje */
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .section {
+        padding: 4rem 0;
+    }
+
+    .hero-image-box {
+        width: 180px;
+        height: 180px;
+    }
+
+    /* Hamburger tlačítko se na mobilu zobrazí */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Mobilní vysouvací menu */
+    .nav-menu {
+        position: fixed;
+        top: 4rem;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 4rem);
+        background-color: #09090b;
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s ease-in-out;
+        border-bottom: 1px solid #27272a;
+        z-index: 99;
+    }
+
+    body.light-mode .nav-menu {
+        background-color: #f8fafc;
+        border-bottom-color: #e2e8f0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        font-size: 1.25rem;
+    }
+
+    /* Animace hamburgeru na křížek */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}

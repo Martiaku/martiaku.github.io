@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ochrana soukromí | Martin Kučera</title>
+    <!-- Odkaz na vlastní CSS soubor -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome pro ikony -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigace -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-left">
+          <button id="theme-toggle" class="theme-btn" title="Přepnout režim">
+            <i class="fa-solid fa-sun" id="sun-icon"></i>
+            <i class="fa-solid fa-moon" id="moon-icon"></i>
+          </button>
+          <a href="index.html" class="logo">Martin<span> Kučera</span></a>
+        </div>
+        <a href="index.html" class="nav-btn">Zpět na web</a>
+      </div>
+    </nav>
+
+    <!-- Hlavní obsah stránky Ochrana soukromí -->
+    <main class="section privacy-section">
+      <div class="container contact-container">
+        <h2 class="section-title">
+          <span class="accent">//</span> Ochrana soukromí
+        </h2>
+        <div class="card about-card privacy-card">
+          <p class="privacy-intro">
+            Tento web (<span class="accent">Martin Kučera - Osobní portfolio</span>) slouží jako prezentační stránka mých projektů a dovedností v oblasti programování.
+          </p>
+          
+          <h3>1. Jaká data sbírám?</h3>
+          <p>
+            Na těchto stránkách <strong>nesbírám žádná osobní data</strong> za účelem marketingu, analýzy chování (nepoužívám Google Analytics ani sledovací pixely) ani je neposkytuji třetím stranám.
+          </p>
+
+          <h3>2. Lokální úložiště (LocalStorage)</h3>
+          <p>
+            Web využívá technologii úložiště prohlížeče (localStorage) výhradně pro uložení tvé preference vzhledu (zda máš aktivní tmavý, nebo světelný režim). Tato data neopouštějí tvoje zařízení.
+          </p>
+
+          <h3>3. Kontaktní formulář</h3>
+          <p>
+            Kontaktní formulář na webu je aktuálně statický (designový prvek). Pokud do něj cokoliv vyplníš, data se nikam neodesílají ani neukládají na server. Pro kontaktování mě prosím využij přímo přes mé odkazy (např. GitHub).
+          </p>
+
+          <h3>4. Kontakt</h3>
+          <p>
+            V případě jakýchkoliv dotazů ohledně soukromí mě můžeš kontaktovat přes můj GitHub profil.
+          </p>
+        </div>
+        <div class="privacy-footer-btn">
+          <a href="index.html" class="btn-secondary">Zpět na hlavní stránku</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Patička -->
+    <footer>
+      <p>&copy; 2026 Martin Kučera | Vytvořeno s pomocí vibecodingu.</p>
+    </footer>
+
+    <!-- JavaScript pro přepínání režimů na podstránce -->
+    <script>
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      const sunIcon = document.getElementById("sun-icon");
+      const moonIcon = document.getElementById("moon-icon");
+      const body = document.body;
+
+      themeToggleBtn.addEventListener("click", () => {
+        body.classList.toggle("light-mode");
+
+        if (body.classList.contains("light-mode")) {
+          sunIcon.style.display = "none";
+          moonIcon.style.display = "block";
+        } else {
+          sunIcon.style.display = "block";
+          moonIcon.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html> 
