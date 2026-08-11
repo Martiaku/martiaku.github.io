@@ -740,3 +740,57 @@ body.light-mode footer {
         transform: translateY(-8px) rotate(-45deg);
     }
 }
+
+/* ==========================================
+    LIGHTBOX MODÁLNÍ OKNO PRO OBRÁZKY
+   ========================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 0.75rem;
+    border: 2px solid rgba(45, 212, 191, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.25s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2.5rem;
+    color: #f4f4f5;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #2dd4bf;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
