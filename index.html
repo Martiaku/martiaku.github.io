@@ -50,13 +50,11 @@
     <!-- Úvodní sekce (Hero) -->
     <header class="hero">
       <div class="container hero-container">
-        <!-- Místo pro fotku / avatar (bude vlevo) -->
         <div class="hero-image-wrapper">
           <div class="hero-image-box">
             <img src="images/avatar.jpg" alt="Martin Kučera" />
           </div>
         </div>
-        <!-- Textová část (bude vpravo) -->
         <div class="hero-content">
           <span class="badge">Ahoj, já jsem vývojář / programátor</span>
           <h1>Stavím moderní aplikace <br />a řeším technické výzvy.</h1>
@@ -164,12 +162,7 @@
               <p>
                 Interaktivní konzolová aplikace navržená pro správu a výpočet
                 směnárenských operací. Projekt vznikl v rámci mého
-                sebevzdělávání v programování s důrazem na čistou logiku,
-                přehlednou strukturu kódu a uživatelski přívětivé ovládání přímo
-                v příkazové řádce. Hlavním cílem bylo vytvořit robustní nástroj,
-                který simuluje reálné prostředí směnárny – od zpracování vstupů,
-                přes správu měnových kurzů až po detailní přehled a historii
-                transakcí.
+                sebevzdělávání v programování s důrazem na čistou logiku.
               </p>
             </div>
             <div class="project-tags">
@@ -195,9 +188,7 @@
               <h3>Sledování spotřeby energie</h3>
               <p>
                 Praktická konzolová aplikace v Pythonu navržená pro evidenci,
-                výpočet a analýzu domácí spotřeby energií. Projekt kombinuje
-                práci s uživatelskými vstupy, zpracování dat a přehledné
-                vyhodnocování nákladů a statistik v čase.
+                výpočet a analýzu domácí spotřeby energií.
               </p>
             </div>
             <div class="project-tags">
@@ -221,18 +212,19 @@
         </p>
 
         <div class="card form-card">
-          <form>
+          <!-- Formulář propojený s tvým Formspree endpointem -->
+          <form action="https://formspree.io/f/xjybwwgn" method="POST">
             <div class="form-group">
               <label>Jméno</label>
-              <input type="text" placeholder="Tvoje jméno" />
+              <input type="text" name="name" placeholder="Tvoje jméno" required />
             </div>
             <div class="form-group">
               <label>E-mail</label>
-              <input type="email" placeholder="tvuj@email.cz" />
+              <input type="email" name="email" placeholder="tvuj@email.cz" required />
             </div>
             <div class="form-group">
               <label>Zpráva</label>
-              <textarea rows="4" placeholder="Napiš mi zprávu..."></textarea>
+              <textarea name="message" rows="4" placeholder="Napiš mi zprávu..." required></textarea>
             </div>
             <button type="submit" class="btn-primary full-width">
               Odeslat zprávu
@@ -247,37 +239,58 @@
       <p>&copy; 2026 Martin Kučera | Vytvořeno s pomocí vibecodingu. &bull; <a href="privacy.html" style="color: inherit; text-decoration: underline;">Ochrana soukromí</a></p>
     </footer>
 
-    <!-- JavaScript pro přepínání režimů -->
+    <!-- Lightbox (modální okno) -->
+    <div id="image-modal" class="modal">
+      <span class="modal-close">&times;</span>
+      <img class="modal-content" id="modal-img" alt="Zvětšený náhled">
+    </div>
+
+    <!-- JavaScript -->
     <script>
       // Otevírání a zavírání mobilního menu
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('nav-menu');
+      const navLinks = document.querySelectorAll('.nav-link');
 
-if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+      if (hamburger && navMenu) {
+          hamburger.addEventListener('click', () => {
+              hamburger.classList.toggle('active');
+              navMenu.classList.toggle('active');
+          });
+          navLinks.forEach(link => {
+              link.addEventListener('click', () => {
+                  hamburger.classList.remove('active');
+                  navMenu.classList.remove('active');
+              });
+          });
+      }
 
-    // Zavření menu po kliknutí na libovolný odkaz v něm
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-}
-
-      // Přepínání mezi světlým a tmavým režimem
+      // Přepínání motivu
       const themeToggleBtn = document.getElementById("theme-toggle");
-      const sunIcon = document.getElementById("sun-icon");
-      const moonIcon = document.getElementById("moon-icon");
       const body = document.body;
-
       themeToggleBtn.addEventListener("click", () => {
         body.classList.toggle("light-mode");
       });
+
+      // Lightbox (zvětšení obrázků)
+      const modal = document.getElementById('image-modal');
+      const modalImg = document.getElementById('modal-img');
+      const modalClose = document.querySelector('.modal-close');
+      const clickableImages = document.querySelectorAll('.hero-image-box img, .project-image-box img');
+
+      clickableImages.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+          modal.style.display = 'flex';
+          modalImg.src = img.src;
+          modalImg.alt = img.alt;
+        });
+      });
+
+      const closeModal = () => { modal.style.display = 'none'; };
+      modalClose.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
     </script>
   </body>
 </html>
