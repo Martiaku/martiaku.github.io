@@ -51,10 +51,21 @@
 
     <!-- Úvodní sekce (Hero) -->
     <header class="hero">
+      <div class="hero-code-wall" aria-hidden="true">
+        <div class="code-line line-1" data-code="const experience = ['Python', 'Django', 'React'];"></div>
+        <div class="code-line line-2" data-code="function buildPortfolio() {'"></div>
+        <div class="code-line line-3" data-code="  return ideas.map((idea) =&gt; idea + ' → shipped');"></div>
+        <div class="code-line line-4" data-code="}"></div>
+        <div class="code-line line-5" data-code="if (problem) solve(problem, { focus: 'quality' });"></div>
+      </div>
       <div class="container hero-container">
         <div class="hero-image-wrapper">
-          <div class="hero-image-box">
-            <img src="images/avatar.jpg" alt="Martin Kučera" />
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-orbit"></div>
+            <div class="hero-orbit-two"></div>
+            <div class="hero-image-box">
+              <img src="images/avatar.jpg" alt="Martin Kučera" />
+            </div>
           </div>
         </div>
         <div class="hero-content">
@@ -74,6 +85,11 @@
 
     <!-- Sekce O mně -->
     <section id="about" class="section">
+      <div class="section-code section-code-about" aria-hidden="true">
+        <span data-code="const mindset = ['zodpovědnost', 'učení', 'řešení'];"></span>
+        <span data-code="function learnByBuilding() { return curiosity * focus; }"></span>
+        <span data-code="const stack = ['Python', 'JavaScript', 'React'];"></span>
+      </div>
       <div class="container">
         <h2 class="section-title"><span class="accent">//</span> 01. O mně</h2>
         <div class="card about-card">
@@ -107,6 +123,11 @@
 
     <!-- Sekce Dovednosti -->
     <section id="skills" class="section bg-alt">
+      <div class="section-code section-code-skills" aria-hidden="true">
+        <span data-code="const frontend = ['HTML', 'CSS', 'JavaScript'];"></span>
+        <span data-code="const backend = ['Python', 'Django', 'SQLite'];"></span>
+        <span data-code="const tools = ['Git', 'OpenSCAD', 'debugging'];"></span>
+      </div>
       <div class="container">
         <h2 class="section-title">
           <span class="accent">//</span> 02. Dovednosti &amp; Technologie
@@ -141,6 +162,11 @@
 
     <!-- Sekce Projekty -->
     <section id="projects" class="section">
+      <div class="section-code section-code-projects" aria-hidden="true">
+        <span data-code="const projects = ['směnárna', 'spotřeba', 'automatizace'];"></span>
+        <span data-code="projects.forEach((project) =&gt; ship(project));"></span>
+        <span data-code="console.log('Feedback loop: learn → improve → deploy');"></span>
+      </div>
       <div class="container">
         <h2 class="section-title">
           <span class="accent">//</span> 03. Projekty
@@ -204,6 +230,11 @@
 
     <!-- Sekce Kontakt -->
     <section id="contact" class="section bg-alt">
+      <div class="section-code section-code-contact" aria-hidden="true">
+        <span data-code="const contact = { email: 'kucmar92@gmail.com', phone: '+420 ...' };"></span>
+        <span data-code="if (projectIdeas.length) sendMessage(contact);"></span>
+        <span data-code="return 'Let\'s build something meaningful.';"></span>
+      </div>
       <div class="container contact-container">
         <h2 class="section-title center">
           <span class="accent">//</span> 04. Kontakt
