@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Osobní Portfolio | Kučera</title>
+    <title>Osobní Portfolio | Martin Kučera</title>
     <!-- Odkaz na vlastní CSS soubor -->
     <link rel="stylesheet" href="style.css" />
     <!-- Font Awesome pro ikony -->
@@ -25,6 +25,7 @@
           <ul class="nav-links">
             <li><a href="#about" class="nav-link">O mně</a></li>
             <li><a href="#skills" class="nav-link">Dovednosti</a></li>
+            <li><a href="#certificates" class="nav-link">Certifikáty</a></li>
             <li><a href="#projects" class="nav-link">Projekty</a></li>
             <li><a href="#contact" class="nav-link">Kontakt</a></li>
           </ul>
@@ -53,7 +54,7 @@
     <header class="hero">
       <div class="hero-code-wall" aria-hidden="true">
         <div class="code-line line-1" data-code="const experience = ['Python', 'Django', 'React'];"></div>
-        <div class="code-line line-2" data-code="function buildPortfolio() {'"></div>
+        <div class="code-line line-2" data-code="function buildPortfolio() {"></div>
         <div class="code-line line-3" data-code="  return ideas.map((idea) =&gt; idea + ' → shipped');"></div>
         <div class="code-line line-4" data-code="}"></div>
         <div class="code-line line-5" data-code="if (problem) solve(problem, { focus: 'quality' });"></div>
@@ -64,14 +65,14 @@
             <div class="hero-orbit"></div>
             <div class="hero-orbit-two"></div>
             <div class="hero-image-box">
-              <img src="images/avatar.jpg" alt="Martin Kučera" />
+              <img src="images/avatar.jpg" alt="Martin Kučera" loading="lazy" />
             </div>
           </div>
         </div>
         <div class="hero-content">
-          <span class="badge">Ahoj, já jsem vývojář / programátor
-          <br />Stavím moderní aplikace a řeším technické výzvy.</span>
-          <p>
+          <span class="badge">Ahoj, já jsem vývojář / programátor</span>
+          <h1 style="display: none;">Martin Kučera - Portfolio</h1>
+          <p style="margin-top: 1rem;">
             Učím se moderní technologie jako Python, Django, React a JavaScript.
             Spojuji logiku kódu s citem pro čistý design.
           </p>
@@ -160,6 +161,101 @@
       </div>
     </section>
 
+    <!-- Sekce Certifikáty -->
+    <section id="certificates" class="section bg-alt">
+      <div class="section-code section-code-projects" aria-hidden="true">
+        <span data-code="const certificates = ['Python', 'JavaScript', 'Django'];"></span>
+        <span data-code="certificates.forEach((cert) =&gt; validate(cert));"></span>
+        <span data-code="console.log('Completed learning path: verified');"></span>
+      </div>
+      <div class="container">
+        <h2 class="section-title">
+          <span class="accent">//</span> 03. Certifikáty
+        </h2>
+        <div class="cert-grid">
+          <div class="card cert-card">
+            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div class="cert-content">
+              <span class="cert-tag">Python</span>
+              <h3>Základy Pythonu</h3>
+              <p>Python pro začátečníky a základní programovací logika.</p>
+            </div>
+            <a href="files/Certifikat_Zakladni_konstrukce_jazyka_Python.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
+          </div>
+
+          <div class="card cert-card">
+            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div class="cert-content">
+              <span class="cert-tag">Python</span>
+              <h3>Pokročilé Python</h3>
+              <p>Rozšířené dovednosti a strukturované řešení problémů.</p>
+            </div>
+            <a href="files/Certificate Python Basic (1) Martin Kučera..pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
+          </div>
+
+          <div class="card cert-card">
+            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div class="cert-content">
+              <span class="cert-tag">JavaScript</span>
+              <h3>Základy JavaScriptu</h3>
+              <p>JavaScript, proměnné, funkce a interaktivní logika.</p>
+            </div>
+            <a href="files/Certifikat_Zakladni_konstrukce_jazyka_JavaScript.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
+          </div>
+
+          <div class="card cert-card">
+            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div class="cert-content">
+              <span class="cert-tag">Django</span>
+              <h3>Základy Django</h3>
+              <p>Práce s frameworkem Django a základní architekturou aplikace.</p>
+            </div>
+            <a href="files/Certifikat_Zaklady_Django_frameworku_pro_Python.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
+          </div>
+
+          <div class="card cert-card">
+            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div class="cert-content">
+              <span class="cert-tag">React</span>
+              <h3>Základy Reactu</h3>
+              <p>Komponenty, props a stavový model v Reactu.</p>
+            </div>
+            <a href="files/Certifikat_Zaklady_React.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
+          </div>
+
+          <div class="card cert-card">
+            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div class="cert-content">
+              <span class="cert-tag">Git</span>
+              <h3>Git</h3>
+              <p>Práce s verzováním, větvemi a základní workflow v GitHub.</p>
+            </div>
+            <a href="files/Certifikat_Git.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
+          </div>
+
+          <div class="card cert-card">
+            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div class="cert-content">
+              <span class="cert-tag">Web</span>
+              <h3>Moderní webdesign</h3>
+              <p>Moderní přístup k webovému designu a UX detailům.</p>
+            </div>
+            <a href="files/Certifikat_Moderni_webdesign.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
+          </div>
+
+          <div class="card cert-card">
+            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div class="cert-content">
+              <span class="cert-tag">API</span>
+              <h3>REST API v Django</h3>
+              <p>Vytváření API v Django a práce s daty v reálném projektu.</p>
+            </div>
+            <a href="files/Certifikat_REST_API_v_Django_-_Filmova_databaze.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Sekce Projekty -->
     <section id="projects" class="section">
       <div class="section-code section-code-projects" aria-hidden="true">
@@ -169,13 +265,13 @@
       </div>
       <div class="container">
         <h2 class="section-title">
-          <span class="accent">//</span> 03. Projekty
+          <span class="accent">//</span> 04. Projekty
         </h2>
         <div class="grid-2">
           <!-- Projekt 1 -->
           <div class="card project-card">
             <div class="project-image-box">
-              <img src="images/smenarna.png" alt="Směnárenská aplikace" />
+              <img src="images/smenarna.png" alt="Směnárenská aplikace" loading="lazy" />
             </div>
             <div>
               <div class="project-header">
@@ -183,6 +279,7 @@
                 <a
                   href="https://github.com/Martiaku/Smenarna_terminal_2"
                   class="project-link"
+                  aria-label="GitHub repozitář - Směnárenská aplikace"
                   ><i class="fa-brands fa-github"></i
                 ></a>
               </div>
@@ -202,7 +299,7 @@
           <!-- Projekt 2 -->
           <div class="card project-card">
             <div class="project-image-box">
-              <img src="images/spotreba.png" alt="Sledování spotřeby energie" />
+              <img src="images/spotreba.png" alt="Sledování spotřeby energie" loading="lazy" />
             </div>
             <div>
               <div class="project-header">
@@ -210,6 +307,7 @@
                 <a
                   href="https://github.com/Martiaku/Sledovani_spotreby_energii_2"
                   class="project-link"
+                  aria-label="GitHub repozitář - Sledování spotřeby energie"
                   ><i class="fa-brands fa-github"></i
                 ></a>
               </div>
@@ -237,7 +335,7 @@
       </div>
       <div class="container contact-container">
         <h2 class="section-title center">
-          <span class="accent">//</span> 04. Kontakt
+          <span class="accent">//</span> 05. Kontakt
         </h2>
         <p class="contact-text">
           Máš na mě dotaz, chceš probrat spolupráci nebo se jen propojit? Napiš
@@ -267,16 +365,16 @@
           <!-- Formulář propojený s tvým Formspree endpointem -->
           <form action="https://formspree.io/f/xjybwwgn" method="POST">
             <div class="form-group">
-              <label>Jméno</label>
-              <input type="text" name="name" placeholder="Tvoje jméno" required />
+              <label for="name">Jméno</label>
+              <input type="text" id="name" name="name" placeholder="Tvoje jméno" required />
             </div>
             <div class="form-group">
-              <label>E-mail</label>
-              <input type="email" name="email" placeholder="tvuj@email.cz" required />
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" placeholder="tvuj@email.cz" required />
             </div>
             <div class="form-group">
-              <label>Zpráva</label>
-              <textarea name="message" rows="4" placeholder="Napiš mi zprávu..." required></textarea>
+              <label for="message">Zpráva</label>
+              <textarea id="message" name="message" rows="4" placeholder="Napiš mi zprávu..." required></textarea>
             </div>
             <button type="submit" class="btn-primary full-width">
               Odeslat zprávu

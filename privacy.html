@@ -17,19 +17,23 @@
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-left">
-          <button id="theme-toggle" class="theme-btn" title="Přepnout režim">
-            <i class="fa-solid fa-sun" id="sun-icon"></i>
-            <i class="fa-solid fa-moon" id="moon-icon"></i>
+          <button class="theme-btn" id="theme-toggle" aria-label="Přepnout motiv" title="Přepnout režim">
+            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
           </button>
           <a href="index.html" class="logo">Martin<span> Kučera</span></a>
         </div>
-        <a href="index.html" class="nav-btn">Zpět na web</a>
       </div>
     </nav>
 
     <!-- Hlavní obsah stránky Ochrana soukromí -->
     <main class="section privacy-section">
-      <div class="container contact-container">
+      <div class="section-code section-code-privacy" aria-hidden="true">
+        <span data-code="const privacy = { stored: 'theme preference', shared: false };"></span>
+        <span data-code="if (userConsent) respectPrivacy();"></span>
+        <span data-code="return data.filter(Boolean);"></span>
+      </div>
+      <div class="container contact-container privacy-layout">
         <h2 class="section-title">
           <span class="accent">//</span> Ochrana soukromí
         </h2>
@@ -69,24 +73,6 @@
       <p>&copy; 2026 Martin Kučera</p>
     </footer>
 
-    <!-- JavaScript pro přepínání režimů na podstránce -->
-    <script>
-      const themeToggleBtn = document.getElementById("theme-toggle");
-      const sunIcon = document.getElementById("sun-icon");
-      const moonIcon = document.getElementById("moon-icon");
-      const body = document.body;
-
-      themeToggleBtn.addEventListener("click", () => {
-        body.classList.toggle("light-mode");
-
-        if (body.classList.contains("light-mode")) {
-          sunIcon.style.display = "none";
-          moonIcon.style.display = "block";
-        } else {
-          sunIcon.style.display = "block";
-          moonIcon.style.display = "none";
-        }
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
-</html> 
+</html>
