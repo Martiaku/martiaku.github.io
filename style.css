@@ -1,4 +1,4 @@
-/* Základní proměnné a reset */
+﻿/* Základní proměnné a reset */
 * {
     margin: 0;
     padding: 0;
@@ -614,46 +614,103 @@ footer {
         height: 180px;
     }
 
+    .nav-right {
+        gap: 0.5rem;
+    }
+
+    .header-cv-btn {
+        padding: 0.45rem 0.7rem;
+        margin-right: 0.25rem;
+        font-size: 0.75rem;
+    }
+
+    .contact-details {
+        padding: 1.25rem;
+    }
+
     /* Hamburger tlačítko se na mobilu zobrazí */
     .hamburger {
         display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        padding: 0.5rem;
+        border-radius: 0.8rem;
+        background: rgba(45, 212, 191, 0.08);
+        border: 1px solid rgba(45, 212, 191, 0.25);
+    }
+
+    .hamburger .bar {
+        width: 22px;
+        height: 2.5px;
+        border-radius: 999px;
+        background-color: #2dd4bf;
     }
 
     /* Mobilní vysouvací menu */
     .nav-menu {
         position: fixed;
         top: 4rem;
-        left: -100%;
-        width: 100%;
+        right: 0;
+        left: auto;
+        width: min(85vw, 360px);
         height: calc(100vh - 4rem);
-        background-color: #09090b;
-        backdrop-filter: blur(10px);
+        background: rgba(9, 9, 11, 0.96);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: 0.3s ease-in-out;
-        border-bottom: 1px solid #27272a;
-        z-index: 99;
+        align-items: stretch;
+        justify-content: flex-start;
+        padding: 1.25rem 1rem 2rem;
+        transform: translateX(110%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.28s ease, opacity 0.25s ease;
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 120;
     }
 
     .nav-menu.active {
-        left: 0;
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
     }
 
     .nav-links {
         flex-direction: column;
-        align-items: center;
-        gap: 2rem;
+        align-items: stretch;
+        gap: 0.75rem;
+        width: 100%;
+        margin-top: 1rem;
     }
 
     .nav-links a {
-        font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1rem 1rem;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #f4f4f5;
+        font-size: 1.05rem;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+        background: rgba(45, 212, 191, 0.08);
+        border-color: rgba(45, 212, 191, 0.35);
+        transform: translateX(2px);
     }
 
     /* Animace hamburgeru na křížek */
     .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
+        transform: translateY(7px) rotate(45deg);
     }
 
     .hamburger.active .bar:nth-child(2) {
@@ -661,7 +718,29 @@ footer {
     }
 
     .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    body.light-mode .nav-menu {
+        background: rgba(248, 250, 252, 0.96);
+        border-left-color: rgba(15, 23, 42, 0.08);
+        border-top-color: rgba(15, 23, 42, 0.08);
+    }
+
+    body.light-mode .nav-links a {
+        background: rgba(15, 23, 42, 0.02);
+        border-color: rgba(15, 23, 42, 0.08);
+        color: #0f172a;
+    }
+
+    body.light-mode .nav-links a:hover,
+    body.light-mode .nav-links a:focus-visible {
+        background: rgba(13, 148, 136, 0.08);
+        border-color: rgba(13, 148, 136, 0.3);
     }
 }
 

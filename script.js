@@ -7,6 +7,7 @@ if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
     });
 
     // Zavření menu po kliknutí na libovolný odkaz v něm
@@ -14,6 +15,7 @@ if (hamburger && navMenu) {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
         });
     });
 }
