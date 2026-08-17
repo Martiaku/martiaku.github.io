@@ -249,6 +249,7 @@ const injectGdprBanner = () => {
     const banner = document.createElement('div');
     banner.id = 'gdpr-banner';
     banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Soukromí a nastavení cookies');
     banner.setAttribute('aria-live', 'polite');
     banner.innerHTML = `
         <div class="gdpr-banner__content">
