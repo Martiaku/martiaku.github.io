@@ -7,6 +7,12 @@ const navLinks = document.querySelectorAll('.nav-links a');
 const body = document.body;
 
 if (hamburger && navMenu) {
+    const closeMobileMenu = () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+    };
+
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
@@ -14,11 +20,17 @@ if (hamburger && navMenu) {
     });
 
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            body.classList.remove('menu-open');
-        });
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    document.addEventListener('click', (event) => {
+        if (
+            navMenu.classList.contains('active')
+            && !navMenu.contains(event.target)
+            && !hamburger.contains(event.target)
+        ) {
+            closeMobileMenu();
+        }
     });
 }
 
