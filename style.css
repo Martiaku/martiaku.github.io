@@ -984,6 +984,36 @@ body.light-mode #theme-toggle #moon-icon { display: block; }
     color: var(--text);
 }
 
+.gdpr-banner__copy a {
+    display: inline-block;
+    margin-top: 0.35rem;
+    color: var(--accent-2);
+    font-size: 0.8rem;
+    text-decoration: underline;
+}
+
+.gdpr-banner__actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 0.6rem;
+}
+
+@media (max-width: 767px) {
+    .gdpr-banner__content {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 0.9rem 1rem;
+    }
+
+    .gdpr-banner__actions {
+        flex-direction: column-reverse;
+    }
+
+    .gdpr-banner__actions .gdpr-btn {
+        width: 100%;
+    }
+}
+
 /* Lightbox Modal */
 .modal {
     display: none;

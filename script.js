@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Načtení uloženého jazyka (nebo defaultně češtiny)
-    const savedLang = localStorage.getItem('language') || 'cs';
+    const savedLang = localStorage.getItem('language') || 'en';
     setLanguage(savedLang);
+    initializePrivacyNotice();
 
     // 1. Motivy (Dark/Light)
     const themeToggleBtn = document.getElementById('theme-toggle');
@@ -147,8 +148,79 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(card);
     });
 });
+// 5. GDPR banner
+const privacyNoticeCopy = {
+    cs: {
+        title: 'Soukromí na tomto webu',
+        message: 'Tento web neukládá osobní údaje na vlastní server. LocalStorage používá pouze pro zapamatování motivu a jazyka. Data z kontaktního formuláře jsou zpracována a uložena službou třetí strany.',
+    accept: 'Rozumím',
+    reject: 'Odmítám',
+    link: 'Více o soukromí'
+    },
+    en: {
+    title: 'Privacy on this website',
+    message: 'This website does not store personal data on its own server. LocalStorage is used only for theme and language settings. Contact form submissions are processed and stored via a third-party service.',
+    accept: 'Got it',
+    reject: 'Decline',
+    link: 'More about privacy'
+    },
+    de: {
+    title: 'Datenschutz auf dieser Website',
+    message: 'Diese Website speichert keine personenbezogenen Daten auf einem eigenen Server. LocalStorage wird nur für Design und Sprache verwendet. Daten aus dem Kontaktformular werden über einen Drittanbieter verarbeitet und gespeichert.',
+    accept: 'Verstanden',
+    reject: 'Ablehnen',
+    link: 'Mehr zum Datenschutz'
+    }
+};
 
-// 4. Funkce pro přepínání jazyků
+function initializePrivacyNotice() {
+    if (localStorage.getItem('privacyNoticeDismissed') === 'true') return;
+
+    const banner = document.createElement('aside');
+    banner.id = 'gdpr-banner';
+    banner.setAttribute('role', 'status');
+    banner.innerHTML = `
+        <div class="gdpr-banner__content">
+            <div class="gdpr-banner__copy">
+                <strong data-privacy-title></strong>
+                <p data-privacy-message></p>
+                <a href="privacy.html" data-privacy-link></a>
+            </div>
+            <div class="gdpr-banner__actions">
+                <button type="button" class="gdpr-btn gdpr-btn--ghost" data-privacy-reject></button>
+                <button type="button" class="gdpr-btn gdpr-btn--primary" data-privacy-dismiss></button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(banner);
+    updatePrivacyNotice(document.body.dataset.language || 'cs');
+
+    banner.querySelector('[data-privacy-dismiss]').addEventListener('click', () => {
+        localStorage.setItem('privacyNoticeDismissed', 'true');
+        banner.remove();
+    });
+
+    banner.querySelector('[data-privacy-reject]').addEventListener('click', () => {
+        banner.remove();
+    });
+}
+
+function updatePrivacyNotice(lang) {
+    const banner = document.getElementById('gdpr-banner');
+    if (!banner) return;
+
+    const copy = privacyNoticeCopy[lang] || privacyNoticeCopy.cs;
+    banner.querySelector('[data-privacy-title]').textContent = copy.title;
+    banner.querySelector('[data-privacy-message]').textContent = copy.message;
+    banner.querySelector('[data-privacy-dismiss]').textContent = copy.accept;
+    banner.querySelector('[data-privacy-reject]').textContent = copy.reject;
+
+    const privacyLink = banner.querySelector('[data-privacy-link]');
+    privacyLink.textContent = copy.link;
+    privacyLink.href = 'privacy.html';
+}
+
+//6. Funkce pro přepínání jazyků
 function setLanguage(lang) {
     localStorage.setItem('language', lang); // Uložení volby jazyka
 
@@ -184,4 +256,6 @@ function setLanguage(lang) {
         if (href) cvLink.setAttribute('href', href);
         if (text) cvLink.textContent = text;
     }
+
+    updatePrivacyNotice(lang);
 }
