@@ -1,54 +1,151 @@
 <!doctype html>
-<html lang="en">
+<html lang="cs">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy | Martin Kučera</title>
+    <title 
+      id="page-title"
+      data-cs="Ochrana soukromí | Martin Kučera" 
+      data-en="Privacy Policy | Martin Kučera" 
+      data-de="Datenschutzerklärung | Martin Kučera">Ochrana soukromí | Martin Kučera</title>
+    
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
-  <body class="privacy-page" data-language="en" data-gdpr-title="Privacy and settings" data-gdpr-description="This website only stores your appearance preference. No analytics or marketing cookies are stored without your consent." data-gdpr-accept="Accept all" data-gdpr-reject="Reject" data-gdpr-theme="Store appearance preference" data-gdpr-analytics="Anonymous analytics (not used)" data-gdpr-marketing="Marketing cookies (not used)" data-gdpr-save="Save settings" data-gdpr-close="Close">
+  <body class="privacy-page" data-language="cs">
+    
+    <!-- Efekt kódu na pozadí -->
+    <div class="section-code" aria-hidden="true">
+      <div class="code-line line-1">const privacy = { stored: 'theme preference', shared: false };</div>
+      <div class="code-line line-2">if (userConsent) respectPrivacy();</div>
+      <div class="code-line line-3">return data.filter(Boolean);</div>
+    </div>
+
+    <!-- Navigace v pořadí dle image_f49c54.png -->
     <nav class="navbar">
       <div class="nav-container">
+        
+        <!-- Levá část: Logo -->
         <div class="nav-left">
-          <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93 6.34 6.34"/><path d="M17.66 17.66 19.07 19.07"/><path d="M2 12h2"/><path d="M20 12h2"/></svg>
-            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-          </button>
-          <div class="language-switcher" aria-label="Language selector">
-            <a class="language-btn is-active" data-language="en" href="privacy.html">EN</a>
-            <a class="language-btn" data-language="cs" href="privacy_cz.html">CZ</a>
-            <a class="language-btn" data-language="de" href="privacy_de.html">DE</a>
-          </div>
-          <a href="index.html" class="logo">Martin<span> Kučera</span></a>
+          <a href="new_index.html" class="logo">Martin<span> Kučera</span></a>
         </div>
+
+        <!-- Pravá část: Stáhnout CV + Přepínač režimu + Přepínač jazyků -->
+        <div class="nav-right">
+          <a href="files/CV_MartinKucera_EN.pdf" class="header-cv-btn" id="cv-link" target="_blank"
+             data-cs="files/CV_MartinKucera_EN.pdf" data-en="files/CV_MartinKucera_EN.pdf" data-de="files/CV_MartinKucera_DE.pdf"
+             data-text-cs="Stáhnout CV" data-text-en="Download CV" data-text-de="CV Herunterladen">Stáhnout CV</a>
+
+          <button class="theme-btn" id="theme-toggle" aria-label="Přepnout motiv" title="Přepnout režim">
+            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </button>
+          
+          <div class="language-switcher" aria-label="Language selector">
+            <button class="language-btn is-active" onclick="setLanguage('cs')">CZ</button>
+            <button class="language-btn" onclick="setLanguage('en')">EN</button>
+            <button class="language-btn" onclick="setLanguage('de')">DE</button>
+          </div>
+        </div>
+
       </div>
     </nav>
+
+    <!-- Hlavní obsah -->
     <main class="section privacy-section">
-      <div class="section-code section-code-privacy" aria-hidden="true">
-        <span data-code="const privacy = { stored: 'theme preference', shared: false };"></span>
-        <span data-code="if (userConsent) respectPrivacy();"></span>
-        <span data-code="return data.filter(Boolean);"></span>
-      </div>
       <div class="container contact-container privacy-layout">
-        <h2 class="section-title"><span class="accent">//</span> Privacy Policy</h2>
+        <h2 class="section-title">
+          <span class="accent">//</span> 
+          <span 
+            data-cs="Ochrana soukromí" 
+            data-en="Privacy Policy" 
+            data-de="Datenschutzerklärung">
+            Ochrana soukromí</span>
+        </h2>
+        
         <div class="card about-card privacy-card">
-          <p class="privacy-intro">This website (<span class="accent">Martin Kučera - Personal portfolio</span>) is a presentation page for my projects and programming skills.</p>
-          <h3>1. What data do I collect?</h3>
-          <p>This website does not collect any personal data for marketing or behavioural analysis (I do not use Google Analytics or tracking pixels), nor do I share it with third parties.</p>
-          <h3>2. Local storage (LocalStorage)</h3>
-          <p>The website uses browser storage only to save your appearance preference (dark or light mode). This data never leaves your device.</p>
-          <h3>3. Contact Form</h3>
-          <p>
-            If you use the contact form on this website, the submitted data (name, email address, and message content) is processed via the external service <strong>Formspree</strong> (Formspree Inc.), which securely forwards the message to my email address. This data is not used for marketing purposes nor shared with any other third parties.
+          <p class="privacy-intro">
+            <span 
+              data-cs="Tento web (" 
+              data-en="This website (" 
+              data-de="Diese Website (">Tento web (</span><span class="accent" 
+              data-cs="Martin Kučera - Osobní portfolio" 
+              data-en="Martin Kučera - Personal portfolio" 
+              data-de="Martin Kučera - Persönliches Portfolio">Martin Kučera - Osobní portfolio</span><span 
+              data-cs=") slouží jako prezentační stránka mých projektů a dovedností v oblasti programování." 
+              data-en=") is a presentation page for my projects and programming skills." 
+              data-de=") präsentiert meine Projekte und Programmierkenntnisse.">) slouží jako prezentační stránka mých projektů a dovedností v oblasti programování.</span>
           </p>
-          <h3>4. Contact</h3>
-          <p>If you have questions about privacy, you can contact me through my GitHub profile or via the <a href="index.html#contact">Contact</a> page.</p>
+          
+          <h3 
+            data-cs="1. Jaká data sbírám?" 
+            data-en="1. What data do I collect?" 
+            data-de="1. Welche Daten sammle ich?">
+            1. Jaká data sbírám?</h3>
+          <p 
+            data-cs="Na těchto stránkách nesbírám žádná osobní data za účelem marketingu, analýzy chování (nepoužívám Google Analytics ani sledovací pixely) ani je neposkytuji třetím stranám." 
+            data-en="This website does not collect any personal data for marketing or behavioural analysis (I do not use Google Analytics or tracking pixels), nor do I share it with third parties." 
+            data-de="Diese Website sammelt keine personenbezogenen Daten für Marketing oder Verhaltensanalyse (kein Google Analytics und keine Tracking-Pixel) und gibt sie nicht an Dritte weiter.">
+            Na těchto stránkách <strong>nesbírám žádná osobní data</strong> za účelem marketingu, analýzy chování (nepoužívám Google Analytics ani sledovací pixely) ani je neposkytuji třetím stranám.
+          </p>
+
+          <h3 
+            data-cs="2. Lokální úložiště (LocalStorage)" 
+            data-en="2. Local storage (LocalStorage)" 
+            data-de="2. Lokaler Speicher (LocalStorage)">
+            2. Lokální úložiště (LocalStorage)</h3>
+          <p 
+            data-cs="Web využívá technologii úložiště prohlížeče (localStorage) výhradně pro uložení tvé preference vzhledu (zda máš aktivní tmavý, nebo světelný režim). Tato data neopouštějí tvoje zařízení." 
+            data-en="The website uses browser storage only to save your appearance preference (dark or light mode). This data never leaves your device." 
+            data-de="Die Website nutzt den Browser-Speicher ausschließlich für deine Darstellungseinstellung (dunkler oder heller Modus). Diese Daten verlassen dein Gerät nicht.">
+            Web využívá technologii úložiště prohlížeče (localStorage) výhradně pro uložení tvé preference vzhledu (zda máš aktivní tmavý, nebo světelný režim). Tato data neopouštějí tvoje zařízení.
+          </p>
+
+          <h3 
+            data-cs="3. Kontaktní formulář" 
+            data-en="3. Contact Form" 
+            data-de="3. Kontaktformular">
+            3. Kontaktní formulář</h3>
+          <p 
+            data-cs="Pokud použiješ kontaktní formulář na webu, odeslané údaje (jméno, e-mail a obsah zprávy) jsou zpracovávány prostřednictvím externí služby Formspree (Formspree Inc.), která slouží k bezpečnému doručení zprávy na můj e-mail. Data nejsou využívána k marketingovým účelům ani předávána dalším třetím stranám." 
+            data-en="If you use the contact form on this website, the submitted data (name, email address, and message content) is processed via the external service Formspree (Formspree Inc.), which securely forwards the message to my email address. This data is not used for marketing purposes nor shared with any other third parties." 
+            data-de="Wenn Sie das Kontaktformular auf dieser Website nutzen, werden die eingegebenen Daten (Name, E-Mail-Adresse und Nachrichtentext) über den externen Dienst Formspree (Formspree Inc.) verarbeitet, um die Nachricht sicher an meine E-Mail-Adresse weiterzuleiten. Diese Daten werden weder für Marketingzwecke verwendet noch an sonstige Dritte weitergegeben.">
+            Pokud použiješ kontaktní formulář na webu, odeslané údaje (jméno, e-mail a obsah zprávy) jsou zpracovávány prostřednictvím externí služby <strong>Formspree</strong> (Formspree Inc.), která slouží k bezpečnému doručení zprávy na můj e-mail. Data nejsou využívána k marketingovým účelům ani předávána dalším třetím stranám.
+          </p>
+
+          <h3 
+            data-cs="4. Kontakt" 
+            data-en="4. Contact" 
+            data-de="4. Kontakt">
+            4. Kontakt</h3>
+          <p>
+            <span 
+              data-cs="V případě jakýchkoliv dotazů ohledně soukromí mě můžeš kontaktovat přes můj GitHub profil nebo přes formulář na stránce " 
+              data-en="If you have questions about privacy, you can contact me through my GitHub profile or via the " 
+              data-de="Bei Fragen zum Datenschutz kannst du mich über mein GitHub-Profil kontaktieren oder per Kontaktformular auf der Seite ">
+              V případě jakýchkoliv dotazů ohledně soukromí mě můžeš kontaktovat přes můj GitHub profil nebo přes formulář na stránce </span><a href="new_index.html#contact" 
+              data-cs="Kontakt" 
+              data-en="Contact" 
+              data-de="Kontakt">
+              Kontakt</a>.
+          </p>
         </div>
-        <div class="privacy-footer-btn"><a href="index.html" class="btn-secondary">Back to homepage</a></div>
+        
+        <div class="privacy-footer-btn" style="margin-top: 2rem; text-align: center;">
+          <a href="new_index.html" class="btn-secondary" 
+             data-cs="Zpět na hlavní stránku" 
+             data-en="Back to homepage" 
+             data-de="Zur Startseite">
+             Zpět na hlavní stránku</a>
+        </div>
       </div>
     </main>
-    <footer><p>&copy; 2026 Martin Kučera</p></footer>
-    <script src="script.js"></script>
+
+    <!-- Patička -->
+    <footer>
+      <p>&copy; 2026 Martin Kučera</p>
+    </footer>
+
+    <script src="new_script.js"></script>
   </body>
 </html>

@@ -1,461 +1,407 @@
-﻿<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Personal portfolio of Martin Kučera, a developer focused on Python, Django, React and modern web development." />
-    <title>Personal Portfolio | Martin Kučera</title>
-    <!-- Odkaz na vlastní CSS soubor -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- Font Awesome pro ikony -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-  </head>
-  <body data-gdpr-title="Privacy and settings" data-gdpr-description="This website only stores your appearance preference. No analytics or marketing cookies are stored without your consent." data-gdpr-accept="Accept all" data-gdpr-reject="Reject" data-gdpr-theme="Store appearance preference" data-gdpr-analytics="Anonymous analytics (not used)" data-gdpr-marketing="Marketing cookies (not used)" data-gdpr-save="Save settings" data-gdpr-close="Close">
-    <!-- Navigace -->
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta id="meta-desc" name="description" 
+          content="Osobní portfolio Martina Kučery - programátora a vývojáře."
+          data-cs="Osobní portfolio Martina Kučery - programátora a vývojáře. Zde najdete informace o mých dovednostech, certifikátech, projektech a kontaktní údaje."
+          data-en="Personal portfolio of Martin Kučera, a developer focused on Python, Django, React and modern web development."
+          data-de="Persönliches Portfolio von Martin Kučera, Entwickler mit Fokus auf Python, Django, React und moderne Webentwicklung.">
+    
+    <title data-cs="Osobní Portfolio | Martin Kučera" 
+           data-en="Personal Portfolio | Martin Kučera" 
+           data-de="Persönliches Portfolio | Martin Kučera">Osobní Portfolio | Martin Kučera</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body data-language="cs">
+    <!-- NAVBAR -->
     <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-left">
-          <a href="#" class="logo">Martin<span> Kučera</span></a>
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="#" class="logo">Martin<span> Kučera</span></a>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link" data-cs="O mně" data-en="About" data-de="Über mich">O mně</a></li>
+                    <li><a href="#skills" class="nav-link" data-cs="Dovednosti" data-en="Skills" data-de="Fähigkeiten">Dovednosti</a></li>
+                    <li><a href="#certificates" class="nav-link" data-cs="Certifikáty" data-en="Certificates" data-de="Zertifikate">Certifikáty</a></li>
+                    <li><a href="#projects" class="nav-link" data-cs="Projekty" data-en="Projects" data-de="Projekte">Projekty</a></li>
+                    <li><a href="#contact" class="nav-link" data-cs="Kontakt" data-en="Contact" data-de="Kontakt">Kontakt</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-right">
+                <a 
+                    id="cv-link"
+                    class="header-cv-btn"
+                    href="files/CV_MartinKucera_EN.pdf"
+                    download
+                    data-cs="files/cv_martin_kucera.pdf"
+                    data-en="files/CV_MartinKucera_EN.pdf"
+                    data-de="files/CV_MartinKucera_DE.pdf"
+                    data-text-cs="Stáhnout CV"
+                    data-text-en="Download CV"
+                    data-text-de="CV herunterladen"
+                >
+                    Stáhnout CV
+                </a>
+
+                <!-- Přepínač motivu -->
+                <button class="theme-btn" id="theme-toggle" aria-label="Přepnout motiv">
+                    <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                    <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                </button>
+
+                <!-- Přepínač jazyků -->
+                <div class="language-switcher">
+                    <button class="language-btn is-active" onclick="setLanguage('cs')">CZ</button>
+                    <button class="language-btn" onclick="setLanguage('en')">EN</button>
+                    <button class="language-btn" onclick="setLanguage('de')">DE</button>
+                </div>
+
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
         </div>
-
-        <!-- Hlavní odkazy a tlačítka -->
-        <div class="nav-menu" id="nav-menu">
-          <ul class="nav-links">
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#skills" class="nav-link">Skills</a></li>
-            <li><a href="#certificates" class="nav-link">Certificates</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="nav-right">
-          <a href="files/CV_MartinKucera_EN.pdf" class="header-cv-btn" download>Download CV</a>
-
-          <!-- Přepínání motivu -->
-          <button class="theme-btn" id="theme-toggle" aria-label="Přepnout motiv">
-            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-          </button>
-          <div class="language-switcher" aria-label="Language selector">
-            <a class="language-btn is-active" data-language="en" href="index.html">EN</a>
-            <a class="language-btn" data-language="cs" href="index_cz.html">CZ</a>
-            <a class="language-btn" data-language="de" href="index_de.html">DE</a>
-          </div>
-
-          <!-- Hamburger tlačítko pro mobily -->
-          <button class="hamburger" id="hamburger" aria-label="Menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </button>
-        </div>
-      </div>
     </nav>
 
-    <!-- Úvodní sekce (Hero) -->
-    <header class="hero">
-      <div class="hero-code-wall" aria-hidden="true">
-        <div class="code-line line-1" data-code="const experience = ['Python', 'Django', 'React'];"></div>
-        <div class="code-line line-2" data-code="function buildPortfolio() {"></div>
-        <div class="code-line line-3" data-code="  return ideas.map((idea) =&gt; idea + ' → shipped');"></div>
-        <div class="code-line line-4" data-code="}"></div>
-        <div class="code-line line-5" data-code="if (problem) solve(problem, { focus: 'quality' });"></div>
-      </div>
-      <div class="container hero-container">
-        <div class="hero-image-wrapper">
-          <div class="hero-visual" aria-hidden="true">
-            <div class="hero-orbit"></div>
-            <div class="hero-orbit-two"></div>
-            <div class="hero-image-box">
-              <img src="images/avatar.jpg" alt="Martin Kučera" loading="lazy" />
+    <main>
+        <!-- HERO -->
+        <header class="hero section">
+            <div class="hero-code-wall" aria-hidden="true">
+                <div class="code-line line-1" data-code="const experience = ['Python', 'Django', 'React'];"></div>
+                <div class="code-line line-2" data-code="function buildPortfolio() {"></div>
+                <div class="code-line line-3" data-code="  return ideas.map((idea) => idea + ' → shipped');"></div>
+                <div class="code-line line-4" data-code="}"></div>
+                <div class="code-line line-5" data-code="if (problem) solve(problem, { focus: 'quality' });"></div>
             </div>
-          </div>
-        </div>
-        <div class="hero-content">
-          <span class="badge">Hello, I am a developer / programmer</span>
-          <h1 style="display: none;">Martin Kučera - Portfolio</h1>
-          <p style="margin-top: 1rem;">
-            I am learning modern technologies such as Python, Django, React and
-            JavaScript. I combine code logic with an eye for clean design.
-          </p>
-          <div class="hero-buttons">
-            <a href="#projects" class="btn-primary">View projects</a>
-            <a href="#about" class="btn-secondary">More about me</a>
-          </div>
-        </div>
-      </div>
-    </header>
+            <div class="container hero-container">
+                <div class="hero-image-wrapper">
+                    <div class="hero-visual" aria-hidden="true">
+                        <div class="hero-orbit"></div>
+                        <div class="hero-orbit-two"></div>
+                        <div class="hero-image-box">
+                            <img src="images/avatar.jpg" alt="Martin Kučera" loading="lazy" />
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <span class="badge" 
+                          data-cs="Ahoj, já jsem vývojář / programátor" 
+                          data-en="Hello, I am a developer / programmer" 
+                          data-de="Hallo, ich bin Entwickler / Programmierer">
+                          Ahoj, já jsem vývojář / programátor
+                    </span>
+                    <p style="margin-top: 1rem;" 
+                       data-cs="Učím se moderní technologie jako Python, Django, React a JavaScript. Spojuji logiku kódu s citem pro čistý design." 
+                       data-en="I am learning modern technologies such as Python, Django, React and JavaScript. I combine code logic with an eye for clean design." 
+                       data-de="Ich lerne moderne Technologien wie Python, Django, React und JavaScript. Ich verbinde Code-Logik mit einem Gespür für klares Design.">
+                       Učím se moderní technologie jako Python, Django, React a JavaScript. Spojuji logiku kódu s citem pro čistý design.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn-primary" data-cs="Prohlédnout projekty" data-en="View projects" data-de="Projekte ansehen">Prohlédnout projekty</a>
+                        <a href="#about" class="btn-secondary" data-cs="Více o mně" data-en="More about me" data-de="Mehr über mich">Více o mně</a>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-    <!-- Sekce About -->
-    <section id="about" class="section">
-      <div class="section-code section-code-about" aria-hidden="true">
-        <span data-code="const mindset = ['zodpovědnost', 'učení', 'řešení'];"></span>
-        <span data-code="function learnByBuilding() { return curiosity * focus; }"></span>
-        <span data-code="const stack = ['Python', 'JavaScript', 'React'];"></span>
-      </div>
-      <div class="container">
-        <h2 class="section-title"><span class="accent">//</span> 01. About</h2>
-        <div class="card about-card">
-          <p>
-            I am at the beginning of my programming career, but I approach
-            problem-solving responsibly and with determination. I enjoy discovering
-            how things work under the hood, whether it is web application
-            development or 3D modelling.
-          </p>
-          <p>In 2025, I decided to pursue a career in development. I chose the
-            ITnetwork, s.r.o. retraining course, where I learned programming
-            fundamentals and technologies such as Python, Django and React. Since
-            then, I have focused on self-study and developing my programming and
-            web development skills.
-          </p>
-          <div class="about-grid">
-            <div>
-              <span class="stat-title">Python</span>
-              <span class="stat-desc">Basics &amp; Django</span>
+        <!-- ABOUT -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title"><span class="accent">//</span> <span data-cs="01. O mně" data-en="01. About" data-de="01. Über mich">01. O mně</span></h2>
+                <div class="card about-card">
+                    <p data-cs="Jsem na začátku své programátorské dráhy, ale k řešení problémů přistupuji zodpovědně a s odhodláním. Baví mě objevovat, jak věci fungují pod kapotou, ať už jde o vývoj webových aplikací nebo konstruování v 3D prostoru."
+                       data-en="I am at the beginning of my programming career, but I approach problem-solving responsibly and with determination. I enjoy discovering how things work under the hood, whether it is web application development or 3D modelling."
+                       data-de="Ich stehe am Anfang meiner Programmierkarriere, gehe Probleme aber verantwortungsvoll und entschlossen an. Ich entdecke gerne, wie Dinge unter der Oberfläche funktionieren – von Webanwendungen bis zur 3D-Konstruktion.">
+                       Jsem na začátku své programátorské dráhy, ale k řešení problémů přistupuji zodpovědně a s odhodláním. Baví mě objevovat, jak věci fungují pod kapotou, ať už jde o vývoj webových aplikací nebo konstruování v 3D prostoru.
+                    </p>
+                    <p data-cs="V roce 2025 jsem se rozhodl vydat se na vývojovou karieru. Vybral jsem si rekvalifikační kurz ITnetWork, s.r.o., kde jsem získal základy programování a se seznámil s technologiemi jako Python, Django a React. Od té doby se věnuji samostudiu a rozvoji svých dovedností v oblasti programování a webového vývoje."
+                       data-en="In 2025, I decided to pursue a career in development. I chose the ITnetwork, s.r.o. retraining course, where I learned programming fundamentals and technologies such as Python, Django and React. Since then, I have focused on self-study and developing my programming and web development skills."
+                       data-de="2025 entschied ich mich für eine Karriere in der Entwicklung. Im Umschulungskurs von ITnetwork, s.r.o. erlernte ich Programmiergrundlagen sowie Python, Django und React. Seitdem bilde ich mich selbstständig weiter.">
+                       V roce 2025 jsem se rozhodl vydat se na vývojovou karieru. Vybral jsem si rekvalifikační kurz ITnetWork, s.r.o., kde jsem získal základy programování a se seznámil s technologiemi jako Python, Django a React. Od té doby se věnuji samostudiu a rozvoji svých dovedností v oblasti programování a webového vývoje.
+                    </p>
+                    <div class="about-grid">
+                        <div>
+                            <span class="stat-title">Python</span>
+                            <span class="stat-desc" data-cs="Základy & Django" data-en="Basics & Django" data-de="Grundlagen & Django">Základy & Django</span>
+                        </div>
+                        <div>
+                            <span class="stat-title">JavaScript</span>
+                            <span class="stat-desc" data-cs="Logika & Interakce" data-en="Logic & Interaction" data-de="Logik & Interaktion">Logika & Interakce</span>
+                        </div>
+                        <div>
+                            <span class="stat-title">React</span>
+                            <span class="stat-desc" data-cs="Komponenty" data-en="Components" data-de="Komponenten">Komponenty</span>
+                        </div>
+                        <div>
+                            <span class="stat-title">3D Tisk</span>
+                            <span class="stat-desc" data-cs="Modelování & Vzory" data-en="Modelling & Patterns" data-de="Modellierung & Muster">Modelování & Vzory</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-              <span class="stat-title">JavaScript</span>
-              <span class="stat-desc">Logic &amp; Interaction</span>
-            </div>
-            <div>
-              <span class="stat-title">React</span>
-              <span class="stat-desc">Components</span>
-            </div>
-            <div>
-              <span class="stat-title">3D printing</span>
-              <span class="stat-desc">Modelling &amp; Patterns</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- Sekce Skills -->
-    <section id="skills" class="section bg-alt">
-      <div class="section-code section-code-skills" aria-hidden="true">
-        <span data-code="const frontend = ['HTML', 'CSS', 'JavaScript'];"></span>
-        <span data-code="const backend = ['Python', 'Django', 'SQLite'];"></span>
-        <span data-code="const tools = ['Git', 'OpenSCAD', 'debugging'];"></span>
-      </div>
-      <div class="container">
-        <h2 class="section-title">
-          <span class="accent">//</span> 02. Skills &amp; Technologies
-        </h2>
-        <div class="grid-3">
-          <div class="card skill-card">
-            <i class="fa-solid fa-code skill-icon"></i>
-            <h3>Frontend</h3>
-            <p>
-              HTML5, CSS3, JavaScript (ES6+), React. Creating responsive interfaces.
-            </p>
-          </div>
-          <div class="card skill-card">
-            <i class="fa-solid fa-server skill-icon"></i>
-            <h3>Backend</h3>
-            <p>
-              Python, Django Framework, REST API and working with databases (SQLite).
-            </p>
-          </div>
-          <div class="card skill-card">
-            <i class="fa-solid fa-cube skill-icon"></i>
-            <h3>Tools &amp; Other</h3>
-            <p>
-              Git / GitHub, OpenSCAD (3D modeling), debugging and passion
-              for continuous learning.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <!-- SKILLS -->
+        <section id="skills" class="section bg-alt">
+            <div class="container">
+                <h2 class="section-title"><span class="accent">//</span> <span data-cs="02. Dovednosti & Technologie" data-en="02. Skills & Technologies" data-de="02. Fähigkeiten & Technologien">02. Dovednosti & Technologie</span></h2>
+                <div class="grid-3">
+                    <div class="card skill-card">
+                        <i class="fa-solid fa-code skill-icon"></i>
+                        <h3 data-cs="Frontend vývoj" data-en="Frontend Development" data-de="Frontend-Entwicklung">Frontend vývoj</h3>
+                        <p data-cs="HTML5, CSS3, JavaScript (ES6+), React. Tvorba responzivních rozhraní."
+                           data-en="HTML5, CSS3, JavaScript (ES6+), React. Creating responsive interfaces."
+                           data-de="HTML5, CSS3, JavaScript (ES6+), React. Erstellung responsiver Benutzeroberflächen.">
+                           HTML5, CSS3, JavaScript (ES6+), React. Tvorba responzivních rozhraní.
+                        </p>
+                    </div>
+                    <div class="card skill-card">
+                        <i class="fa-solid fa-server skill-icon"></i>
+                        <h3 data-cs="Backend vývoj" data-en="Backend Development" data-de="Backend-Entwicklung">Backend vývoj</h3>
+                        <p data-cs="Python, Django Framework, REST API, práce s databázemi (SQLite)."
+                           data-en="Python, Django Framework, REST API and working with databases (SQLite)."
+                           data-de="Python, Django Framework, REST API und Datenbanken (SQLite).">
+                           Python, Django Framework, REST API, práce s databázemi (SQLite).
+                        </p>
+                    </div>
+                    <div class="card skill-card">
+                        <i class="fa-solid fa-cube skill-icon"></i>
+                        <h3 data-cs="Nástroje & Ostatní" data-en="Tools & Other" data-de="Werkzeuge & Sonstiges">Nástroje & Ostatní</h3>
+                        <p data-cs="Git / GitHub, OpenSCAD (3D modelování), ladění kódu a chuť neustále se učit."
+                           data-en="Git / GitHub, OpenSCAD (3D modeling), debugging and passion for continuous learning."
+                           data-de="Git / GitHub, OpenSCAD (3D modellieren), Das Debuggen von Code und der Wunsch, ständig dazuzulernen.">
+                           Git / GitHub, OpenSCAD (3D modelování), ladění kódu a chuť neustále se učit.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Sekce Certificates -->
-    <section id="certificates" class="section bg-alt">
-      <div class="section-code section-code-projects" aria-hidden="true">
-        <span data-code="const certificates = ['Python', 'JavaScript', 'Django'];"></span>
-        <span data-code="certificates.forEach((cert) =&gt; validate(cert));"></span>
-        <span data-code="console.log('Completed learning path: verified');"></span>
-      </div>
-      <div class="container">
-        <h2 class="section-title">
-          <span class="accent">//</span> 03. Certificates
-        </h2>
-        <div class="cert-grid">
-          <div class="card cert-card">
-            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-            <div class="cert-content">
-              <span class="cert-tag">Python</span>
-              <h3>Python Basics</h3>
-              <p>Programming fundamentals and solution structure in Python.</p>
+        <!-- CERTIFICATES -->
+        <section id="certificates" class="section bg-alt">
+            <div class="container">
+                <h2 class="section-title"><span class="accent">//</span> <span data-cs="03. Certifikáty" data-en="03. Certificates" data-de="03. Zertifikate">03. Certifikáty</span></h2>
+                <div class="cert-grid">
+                    <div class="card cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="cert-content">
+                            <span class="cert-tag">Python</span>
+                            <h3 data-cs="Základy Pythonu" data-en="Python Basics" data-de="Python-Grundlagen">Základy Pythonu</h3>
+                            <p data-cs="Programovací základy a struktura řešení v Pythonu." data-en="Programming fundamentals and solution structure in Python." data-de="Programmiergrundlagen und Lösungsstrukturen in Python.">Programovací základy a struktura řešení v Pythonu.</p>
+                        </div>
+                        <a href="files/Certifikat_Zakladni_konstrukce_jazyka_Python.pdf" target="_blank" class="cert-link" data-cs="PDF" data-en="PDF" data-de="PDF">PDF</a>
+                    </div>
+                    <div class="card cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="cert-content">
+                            <span class="cert-tag">Python</span>
+                            <h3 data-cs="Python - Pokročilá konstrukce" data-en="Python Follow-up" data-de="Python-Erweiterungskurs">Python - Pokročilá konstrukce</h3>
+                            <p data-cs="Rozšířené dovednosti po základním kurzu v Pythonu." data-en="Extended skills after the Python basics course." data-de="Erweiterte Kenntnisse nach dem Python-Grundkurs.">Rozšířené dovednosti po základním kurzu v Pythonu.</p>
+                        </div>
+                        <a href="files/Certificate Python Follow up (2) Martin Kučera..pdf" target="_blank" class="cert-link" data-cs="PDF" data-en="PDF" data-de="PDF">PDF</a>
+                    </div>
+                    <div class="card cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="cert-content">
+                            <span class="cert-tag">JavaScript</span>
+                            <h3 data-cs="Základy JavaScriptu" data-en="JavaScript Basics" data-de="JavaScript-Grundlagen">Základy JavaScriptu</h3>
+                            <p data-cs="Proměnné, funkce, logika a interaktivní chování." data-en="Variables, functions, logic and interactive behaviour." data-de="Variablen, Funktionen, Logik und interaktives Verhalten.">Proměnné, funkce, logika a interaktivní chování.</p>
+                        </div>
+                        <a href="files/Certifikat_Zakladni_konstrukce_jazyka_JavaScript.pdf" target="_blank" class="cert-link" data-cs="PDF" data-en="PDF" data-de="PDF">PDF</a>
+                    </div>
+                    <div class="card cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="cert-content">
+                            <span class="cert-tag">Django</span>
+                            <h3 data-cs="Základy Django" data-en="Django Basics" data-de="Django-Grundlagen">Základy Django</h3>
+                            <p data-cs="Práce s frameworkem Django a základní architekturou aplikace." data-en="Working with the Django framework and basic application architecture." data-de="Arbeit mit dem Django-Framework und grundlegender Anwendungsarchitektur.">Práce s frameworkem Django a základní architekturou aplikace.</p>
+                        </div>
+                        <a href="files/Certifikat_Zaklady_Django_frameworku_pro_Python.pdf" target="_blank" class="cert-link" data-cs="PDF" data-en="PDF" data-de="PDF">PDF</a>
+                    </div>
+                    <div class="card cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="cert-content">
+                            <span class="cert-tag">React</span>
+                            <h3 data-cs="Základy Reactu" data-en="React Basics" data-de="React-Grundlagen">Základy Reactu</h3>
+                            <p data-cs="Komponenty, props, stav a základní render flow." data-en="Components, props, state and basic render flow." data-de="Komponenten, props, stav a základní render flow.">Komponenty, props, stav a základní render flow.</p>
+                        </div>
+                        <a href="files/Certifikat_Zaklady_React.pdf" target="_blank" class="cert-link" data-cs="PDF" data-en="PDF" data-de="PDF">PDF</a>
+                    </div>
+                    <div class="card cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="cert-content">
+                            <span class="cert-tag">Git</span>
+                            <h3 data-cs="Verzovací systém Git" data-en="Git Version Control" data-de="Versionsverwaltung Git">Verzovací systém Git</h3>
+                            <p data-cs="Práce s verzováním, větvemi a workflow v GitHub." data-en="Working with versioning, branches and GitHub workflows." data-de="Versionierung, Branches und GitHub-Workflows.">Práce s verzováním, větvemi a workflow v GitHub.</p>
+                        </div>
+                        <a href="files/Certifikat_Git.pdf" target="_blank" class="cert-link" data-cs="PDF" data-en="PDF" data-de="PDF">PDF</a>
+                    </div>
+                    <div class="card cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="cert-content">
+                            <span class="cert-tag">Web</span>
+                            <h3 data-cs="Moderní webdesign" data-en="Modern Web Design" data-de="Modernes Webdesign">Moderní webdesign</h3>
+                            <p data-cs="Moderní přístup k designu a UX v webových projektech." data-en="A modern approach to design and UX in web projects." data-de="Moderner Ansatz für Design und UX in Webprojekten.">Moderní přístup k designu a UX v webových projektech.</p>
+                        </div>
+                        <a href="files/Certifikat_Moderni_webdesign.pdf" target="_blank" class="cert-link" data-cs="PDF" data-en="PDF" data-de="PDF">PDF</a>
+                    </div>
+                    <div class="card cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="cert-content">
+                            <span class="cert-tag">API</span>
+                            <h3 data-cs="REST API v Django" data-en="REST API in Django" data-de="REST-API in Django">REST API v Django</h3>
+                            <p data-cs="Vytváření API a práce s daty v reálném projektu." data-en="Creating APIs and working with data in a real project." data-de="Erstellung von APIs und Arbeit mit Daten in einem echten Projekt.">Vytváření API a práce s daty v reálném projektu.</p>
+                        </div>
+                        <a href="files/Certifikat_REST_API_v_Django_-_Filmova_databaze.pdf" target="_blank" class="cert-link" data-cs="PDF" data-en="PDF" data-de="PDF">PDF</a>
+                    </div>
+                    <div class="card cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="cert-content">
+                            <span class="cert-tag">SQL</span>
+                            <h3 data-cs="SQLite databáze" data-en="SQLite Database" data-de="SQLite-Datenbank">SQLite databáze</h3>
+                            <p data-cs="Databázové operace a práce se strukturou dat." data-en="Database operations and working with data structures." data-de="Datenbankoperationen und Datenstrukturen.">Databázové operace a práce se strukturou dat.</p>
+                        </div>
+                        <a href="files/Certifikat_SQLite_databaze_krok_za_krokem.pdf" target="_blank" class="cert-link" data-cs="PDF" data-en="PDF" data-de="PDF">PDF</a>
+                    </div>
+                    <div class="card cert-card">
+                        <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="cert-content">
+                            <span class="cert-tag">Python</span>
+                            <h3 data-cs="NumPy knihovna" data-en="NumPy Library" data-de="NumPy-Bibliothek">NumPy knihovna</h3>
+                            <p data-cs="Práce s daty a matematickými operacemi v Pythonu." data-en="Working with data and mathematical operations in Python." data-de="Arbeit mit Daten und mathematischen Operationen in Python.">Práce s daty a matematickými operacemi v Pythonu.</p>
+                        </div>
+                        <a href="files/Certifikat_NumPy_-_Matematika_v_Pythonu.pdf" target="_blank" class="cert-link" data-cs="PDF" data-en="PDF" data-de="PDF">PDF</a>
+                    </div>
+                </div>
             </div>
-            <a href="files/Certifikat_Zakladni_konstrukce_jazyka_Python.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
-          </div>
+        </section>
 
-          <div class="card cert-card">
-            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-            <div class="cert-content">
-              <span class="cert-tag">Python</span>
-              <h3>Python Follow-up</h3>
-              <p>Extended skills after the Python basics course.</p>
+        <!-- PROJECTS -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title"><span class="accent">//</span> <span data-cs="04. Projekty" data-en="04. Projects" data-de="04. Projekte">04. Projekty</span></h2>
+                <div class="grid-2">
+                    <div class="card project-card">
+                        <div class="project-image-box">
+                            <img src="images/smenarna.png" alt="Směnárenská aplikace" loading="lazy" />
+                        </div>
+                        <div>
+                            <div class="project-header">
+                                <span class="tag">Python</span>
+                                <a href="https://github.com/Martiaku/Smenarna_terminal_2" class="project-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                            <h3 data-cs="Směnárenská aplikace" data-en="Currency Exchange App" data-de="Währungsrechner">Směnárenská aplikace</h3>
+                            <p data-cs="Interaktivní konzolová aplikace navržená pro správu a výpočet směnárenských operací. Projekt vznikl v rámci mého sebevzdělávání v programování s důrazem na čistou logiku."
+                               data-en="An interactive console application designed for managing and calculating exchange operations. The project was created as part of my self-education in programming with an emphasis on pure logic."
+                               data-de="Eine interaktive Konsolenanwendung zur Verwaltung und Berechnung von Wechselgeschäften. Das Projekt entstand im Rahmen meines autodidaktischen Programmierstudiums mit Schwerpunkt auf reiner Logik.">
+                               Interaktivní konzolová aplikace navržená pro správu a výpočet směnárenských operací. Projekt vznikl v rámci mého sebevzdělávání v programování s důrazem na čistou logiku.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card project-card">
+                        <div class="project-image-box">
+                            <img src="images/spotreba.png" alt="Sledování spotřeby energie" loading="lazy" />
+                        </div>
+                        <div>
+                            <div class="project-header">
+                                <span class="tag">Python</span>
+                                <a href="https://github.com/Martiaku/Sledovani_spotreby_energii_2" class="project-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                            <h3 data-cs="Sledování spotřeby energie" data-en="Energy Consumption Tracking" data-de="Energieverbrauch verfolgen">Sledování spotřeby energie</h3>
+                            <p data-cs="Praktická konzolová aplikace v Pythonu navržená pro evidenci, výpočet a analýzu domácí spotřeby energií."
+                               data-en="An practical console application in Python designed for recording, calculation and analysis of domestic energy consumption."
+                               data-de="Eine praktische Konsolenanwendung in Python, die zur Erfassung, Berechnung und Analyse des Energieverbrauchs im Haushalt entwickelt wurde.">
+                               Praktická konzolová aplikace v Pythonu navržená pro evidenci, výpočet a analýzu domácí spotřeby energií.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card project-card">
+                        <div class="project-image-box">
+                            <img src="images/nejenHasiciVP.png" alt="Web #nejenHasiciVP" loading="lazy" />
+                        </div>
+                        <div>
+                            <div class="project-header">
+                                <span class="tag">HTML, CSS, JS</span>
+                                <a href="https://github.com/Martiaku/-nejenHasiciVP" class="project-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                            <h3 data-cs="Web pro #nejenHasiciVP" data-en="Website for #nejenHasiciVP" data-de="Website für #nejenHasiciVP">Web pro #nejenHasiciVP</h3>
+                            <p data-cs="Vytvoření webu pro politickou stranu #nejenHasiciVP, bohužel tento web nebyl nasazen do produkce."
+                               data-en="Creation of a website for the political party #nejenHasiciVP; unfortunately, the site was not deployed to production."
+                               data-de="Erstellung einer Website für die politische Partei #nejenHasiciVP, leider wurde diese Website nicht in Betrieb genommen.">
+                               Vytvoření webu pro politickou stranu #nejenHasiciVP, bohužel tento web nebyl nasazen do produkce.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <a href="files/Certificate Python Follow-up (2) Martin Kučera..pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
-          </div>
+        </section>
 
-          <div class="card cert-card">
-            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-            <div class="cert-content">
-              <span class="cert-tag">JavaScript</span>
-              <h3>Basics JavaScriptu</h3>
-              <p>Variables, functions, logic and interactive behaviour.</p>
-            </div>
-            <a href="files/Certifikat_Zakladni_konstrukce_jazyka_JavaScript.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
-          </div>
+        <!-- CONTACT -->
+        <section id="contact" class="section bg-alt">
+            <div class="container contact-container">
+                <h2 class="section-title center"><span class="accent">//</span> <span data-cs="05. Kontakt" data-en="05. Contact" data-de="05. Kontakt">05. Kontakt</span></h2>
+                <p class="contact-text" style="text-align: center; margin-bottom: 1.5rem;"
+                   data-cs="Máš na mě dotaz, chceš probrat spolupráci nebo se jen propojit? Napiš mi!"
+                   data-en="Have a question, want to discuss a collaboration or simply connect? Send me a message!"
+                   data-de="Hast du eine Frage, möchtest du eine Zusammenarbeit besprechen oder dich einfach vernetzen? Schreib mir!">
+                   Máš na mě dotaz, chceš probrat spolupráci nebo se jen propojit? Napiš mi!
+                </p>
 
-          <div class="card cert-card">
-            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-            <div class="cert-content">
-              <span class="cert-tag">Django</span>
-              <h3>Basics Django</h3>
-              <p>Working with the Django framework and basic application architecture.</p>
-            </div>
-            <a href="files/Certifikat_Zaklady_Django_frameworku_pro_Python.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
-          </div>
+                <div class="contact-details card">
+                        <div class="contact-detail-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <a href="mailto:kucmar92@gmail.com">kucmar92@gmail.com</a>
+                        </div>
+                        <div class="contact-detail-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <a href="tel:+420774540938">+420 774 540 938</a>
+                        </div>
+                        <div class="contact-socials">
+                            <a href="https://www.linkedin.com/in/martin-ku%C4%8Dera-2260713b6/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/Martiaku" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                </div>
 
-          <div class="card cert-card">
-            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-            <div class="cert-content">
-              <span class="cert-tag">React</span>
-              <h3>React Basics</h3>
-              <p>Components, props, state and basic render flow.</p>
+                <div class="card form-card">
+                    <form action="https://formspree.io/f/xjybwwgn" method="POST">
+                        <div class="form-group">
+                            <label for="name" data-cs="Jméno" data-en="Name" data-de="Name">Jméno</label>
+                            <input type="text" id="name" name="name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-cs="Zpráva" data-en="Message" data-de="Nachricht">Zpráva</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary full-width" data-cs="Odeslat zprávu" data-en="Send message" data-de="Nachricht senden">
+                            Odeslat zprávu
+                        </button>
+                    </form>
+                </div>
             </div>
-            <a href="files/Certifikat_Zaklady_React.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
-          </div>
+        </section>
+    </main>
 
-          <div class="card cert-card">
-            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-            <div class="cert-content">
-              <span class="cert-tag">Git</span>
-              <h3>Git</h3>
-              <p>Working with versioning, branches and GitHub workflows.</p>
-            </div>
-            <a href="files/Certifikat_Git.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
-          </div>
-
-          <div class="card cert-card">
-            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-            <div class="cert-content">
-              <span class="cert-tag">Web</span>
-              <h3>Modern Web Design</h3>
-              <p>A modern approach to design and UX in web projects.</p>
-            </div>
-            <a href="files/Certifikat_Moderni_webdesign.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
-          </div>
-
-          <div class="card cert-card">
-            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-            <div class="cert-content">
-              <span class="cert-tag">API</span>
-              <h3>REST API v Django</h3>
-              <p>Creating APIs and working with data in a real project.</p>
-            </div>
-            <a href="files/Certifikat_REST_API_v_Django_-_Filmova_databaze.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
-          </div>
-
-          <div class="card cert-card">
-            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-            <div class="cert-content">
-              <span class="cert-tag">SQL</span>
-              <h3>SQLite</h3>
-              <p>Database operations and working with data structures.</p>
-            </div>
-            <a href="files/Certifikat_SQLite_databaze_krok_za_krokem.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
-          </div>
-
-          <div class="card cert-card">
-            <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-            <div class="cert-content">
-              <span class="cert-tag">Python</span>
-              <h3>NumPy</h3>
-              <p>Working with data and mathematical operations in Python.</p>
-            </div>
-            <a href="files/Certifikat_NumPy_-_Matematika_v_Pythonu.pdf" target="_blank" rel="noopener noreferrer" class="cert-link">PDF</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sekce Projects -->
-    <section id="projects" class="section">
-      <div class="section-code section-code-projects" aria-hidden="true">
-        <span data-code="const projects = ['směnárna', 'spotřeba', 'automatizace'];"></span>
-        <span data-code="projects.forEach((project) =&gt; ship(project));"></span>
-        <span data-code="console.log('Feedback loop: learn → improve → deploy');"></span>
-      </div>
-      <div class="container">
-        <h2 class="section-title">
-          <span class="accent">//</span> 04. Projects
-        </h2>
-        <div class="grid-2">
-          <!-- Projekt 1 -->
-          <div class="card project-card">
-            <div class="project-image-box">
-              <img src="images/smenarna.png" alt="Currency Exchange App" loading="lazy" />
-            </div>
-            <div>
-              <div class="project-header">
-                <span class="tag">Python</span>
-                <a
-                  href="https://github.com/Martiaku/Smenarna_terminal_2"
-                  class="project-link"
-                  aria-label="GitHub repozitář - Currency Exchange App"
-                  rel="noopener noreferrer"
-                  ><i class="fa-brands fa-github"></i
-                ></a>
-              </div>
-              <h3>Currency Exchange App</h3>
-              <p>
-                An interactive console application designed for managing and calculating
-                exchange operations. The project was created as part of my
-                self-education in programming with an emphasis on pure logic.
-              </p>
-            </div>
-            <div class="project-tags">
-              <span>#python</span>
-              <span>#Terminálová_aplikace</span>
-            </div>
-          </div>
-
-          <!-- Projekt 2 -->
-          <div class="card project-card">
-            <div class="project-image-box">
-              <img src="images/spotreba.png" alt="Energy Consumption Tracking" loading="lazy" />
-            </div>
-            <div>
-              <div class="project-header">
-                <span class="tag">Python</span>
-                <a
-                  href="https://github.com/Martiaku/Sledovani_spotreby_energii_2"
-                  class="project-link"
-                  aria-label="GitHub repozitář - Energy Consumption Tracking"
-                  rel="noopener noreferrer"
-                  ><i class="fa-brands fa-github"></i
-                ></a>
-              </div>
-              <h3>Energy Consumption Tracking</h3>
-              <p>
-                  An practical console application in Python designed for recording,
-                  calculation and analysis of domestic energy consumption
-              </p>
-            </div>
-            <div class="project-tags">
-              <span>#python</span>
-              <span>#Terminálová_aplikace</span>
-            </div>
-          </div>
-
-          <!-- Projekt 3 -->
-          <div class="card project-card">
-            <div class="project-image-box">
-              <img src="images/nejenHasiciVP.png" alt="Web #nejenHasiciVP" loading="lazy" />
-            </div>
-            <div>
-              <div class="project-header">
-                <span class="tag">Python</span>
-                <a
-                  href="https://github.com/Martiaku/-nejenHasiciVP"
-                  class="project-link"
-                  aria-label="GitHub repozitář - Web for #nejenHasiciVP"
-                  rel="noopener noreferrer"
-                  ><i class="fa-brands fa-github"></i
-                ></a>
-              </div>
-              <h3>Website for #nejenHasiciVP</h3>
-              <p>
-                  Creation of a website for the political party #nejenHasiciVP; unfortunately, the site was not deployed to production.
-              </p>
-            </div>
-            <div class="project-tags">
-              <span>#HTML</span>
-              <span>#CSS</span>
-              <span>#JavaScript</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sekce Contact -->
-    <section id="contact" class="section bg-alt">
-      <div class="section-code section-code-contact" aria-hidden="true">
-        <span data-code="const contact = { email: 'kucmar92@gmail.com', phone: '+420 ...' };"></span>
-        <span data-code="if (projectIdeas.length) sendMessage(contact);"></span>
-        <span data-code="return 'Let\'s build something meaningful.';"></span>
-      </div>
-      <div class="container contact-container">
-        <h2 class="section-title center">
-          <span class="accent">//</span> 05. Contact
-        </h2>
-        <p class="contact-text">
-          Have a question, want to discuss a collaboration or simply connect?
-          Send me a message!
-        </p>
-
-        <div class="contact-details card">
-          <div class="contact-detail-item">
-            <i class="fa-solid fa-envelope"></i>
-            <a href="mailto:kucmar92@gmail.com">kucmar92@gmail.com</a>
-          </div>
-          <div class="contact-detail-item">
-            <i class="fa-solid fa-phone"></i>
-            <a href="tel:+420774540938">+420 774 540 938</a>
-          </div>
-          <div class="contact-socials">
-            <a href="https://www.linkedin.com/in/martin-ku%C4%8Dera-2260713b6/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/Martiaku" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="card form-card">
-          <!-- Formulář propojený s tvým Formspree endpointem -->
-          <form action="https://formspree.io/f/xjybwwgn" method="POST">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required />
-            </div>
-            <div class="form-group">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" name="email" placeholder="your@email.com" required />
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="4" placeholder="Write me a message..." required></textarea>
-            </div>
-            <button type="submit" class="btn-primary full-width">
-              Send message
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- Patička -->
     <footer>
-      <p>&copy; 2026 Martin Kučera &bull; <a href="privacy.html" style="color: inherit; text-decoration: underline;">Privacy Policy</a></p>
+        <p>&copy; 2026 Martin Kučera &bull; <a href="privacy.html" id="privacy-link" style="color: inherit; text-decoration: underline;" data-cs="Ochrana soukromí" data-en="Privacy Policy" data-de="Datenschutzerklärung">Ochrana soukromí</a></p>
     </footer>
 
-    <!-- Lightbox (modální okno) -->
-    <div id="image-modal" class="modal">
-      <span class="modal-close">&times;</span>
-      <img class="modal-content" id="modal-img" alt="Zvětšený náhled">
-    </div>
-
     <script src="script.js" defer></script>
-  </body>
+</body>
 </html>

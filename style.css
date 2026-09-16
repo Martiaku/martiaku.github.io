@@ -183,7 +183,9 @@ body::after {
 }
 
 .section-code span,
-.section-code-privacy span {
+.section-code-privacy span,
+.section-code .code-line,
+.section-code-privacy .code-line {
     position: absolute;
     left: 7%;
     right: 10%;
@@ -204,6 +206,12 @@ body::after {
 .section-code-about span:nth-child(1), .section-code-privacy span:nth-child(1) { top: 20%; }
 .section-code-about span:nth-child(2), .section-code-privacy span:nth-child(2) { top: 42%; animation-delay: 1.2s; }
 .section-code-about span:nth-child(3), .section-code-privacy span:nth-child(3) { top: 64%; animation-delay: 2.4s; }
+.section-code .code-line:nth-child(1) { top: 18%; }
+.section-code .code-line:nth-child(2) { top: 40%; animation-delay: 1.2s; }
+.section-code .code-line:nth-child(3) { top: 62%; animation-delay: 2.4s; }
+.section-code .code-line:nth-child(4) { top: 76%; animation-delay: 3.6s; }
+.section-code .code-line:nth-child(5) { top: 88%; animation-delay: 4.8s; }
+.privacy-page > .section-code { opacity: 0.8; transform: perspective(1200px) rotateX(14deg) scale(1.02); }
 
 .section-code-skills span:nth-child(1), .section-code-projects span:nth-child(1), .section-code-contact span:nth-child(1) { top: 18%; }
 .section-code-skills span:nth-child(2), .section-code-projects span:nth-child(2), .section-code-contact span:nth-child(2) { top: 42%; animation-delay: 1.2s; }
@@ -439,14 +447,10 @@ body.light-mode #theme-toggle #moon-icon { display: block; }
 
 .code-line {
     position: absolute;
-    left: 8%;
-    right: 12%;
+    left: 5%;
+    font-family: monospace;
+    font-size: 0.85rem;
     color: var(--code-color);
-    font-family: "SFMono-Regular", Consolas, monospace;
-    font-size: clamp(0.56rem, 1vw, 0.82rem);
-    letter-spacing: 0.04em;
-    white-space: nowrap;
-    opacity: 0.75;
     animation: codeScroll 12s ease-in-out infinite alternate;
 }
 
@@ -703,7 +707,7 @@ body.light-mode #theme-toggle #moon-icon { display: block; }
 
 @media (min-width: 768px) {
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    #projects .grid-2 > .project-card:nth-child(3) { grid-column: 1; }
     .cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -711,6 +715,14 @@ body.light-mode #theme-toggle #moon-icon { display: block; }
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
+}
+
+.project-card {
+    min-width: 0;
+}
+
+@media (min-width: 768px) {
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 .cert-card {
