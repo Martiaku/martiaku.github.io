@@ -147,6 +147,48 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.card').forEach(card => {
         observer.observe(card);
     });
+
+    // 5. Zvětšení obrázků projektů
+    const lightbox = document.getElementById('project-lightbox');
+    const lightboxImage = document.getElementById('project-lightbox-image');
+    const lightboxCaption = document.getElementById('project-lightbox-caption');
+    const lightboxClose = lightbox?.querySelector('.modal-close');
+    let previouslyFocusedElement = null;
+
+    if (lightbox && lightboxImage && lightboxCaption && lightboxClose) {
+        const closeLightbox = () => {
+            lightbox.classList.remove('is-open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('modal-open');
+            lightboxImage.removeAttribute('src');
+            lightboxImage.alt = '';
+            lightboxCaption.textContent = '';
+            previouslyFocusedElement?.focus();
+        };
+
+        document.querySelectorAll('.project-image-box img').forEach(image => {
+            image.addEventListener('click', () => {
+                previouslyFocusedElement = document.activeElement;
+                lightboxImage.src = image.currentSrc || image.src;
+                lightboxImage.alt = image.alt;
+                lightboxCaption.textContent = image.alt;
+                lightbox.classList.add('is-open');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('modal-open');
+                lightboxClose.focus();
+            });
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', event => {
+            if (event.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                closeLightbox();
+            }
+        });
+    }
 });
 // 5. GDPR banner
 const privacyNoticeCopy = {
